@@ -15,6 +15,12 @@ enum NODE_STATUS{
 };
 // TODO: Rem Parent ID
 
+/*
+* Class: Node
+* This class entails the general working
+* of the Node Class and it holds the operations 
+* that are used by derived classes
+*/
 class Node
 {
     private:
@@ -32,7 +38,7 @@ class Node
         unsigned int node_id_;
 
         // This holds the child ID of the current node ID
-        std::vector<Node> child_id_;
+        std::vector<int> child_id_;
 
         // This var has the type of the node 
         // Function GetType() has been overriden for derived classes 

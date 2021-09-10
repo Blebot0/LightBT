@@ -1,6 +1,7 @@
 #include "Node.h"
 
 Node::Node(){
+    
     status_ = NODE_STATUS::DEFAULT;
     
     this->node_id_ = 0;
