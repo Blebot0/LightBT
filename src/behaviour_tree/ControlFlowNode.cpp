@@ -1,8 +1,11 @@
 #include "ControlFlowNode.h"
 
-ControlFlowNode::ControlFlowNode(){
+template <int N>
+ControlFlowNode<N>::ControlFlowNode(int node_id){
+    this->node_id_ = node_id;
+    this->type_ = N;
 }
 
-ControlFlowNode::~ControlFlowNode()
-{
+template <int N>
+ControlFlowNode<N>::~ControlFlowNode(){
 }
