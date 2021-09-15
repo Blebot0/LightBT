@@ -1,5 +1,5 @@
 // @Blebot0
-
+// 
 #pragma once 
 
 #include <vector>
@@ -70,12 +70,12 @@ class Node
         inline void ResetNodeStatus(){
             status_ = NODE_STATUS::DEFAULT;
         }
-        /*
-        * Function: GetType()
-        * @param None
-        * @return Node Type
-        */  
-        virtual int GetType() = 0;
+        // /*
+        // * Function: GetType()
+        // * @param None
+        // * @return Node Type
+        // */  
+        // virtual int GetType() = 0;
 
         /*
         * Function: NumChild()

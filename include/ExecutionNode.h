@@ -7,8 +7,8 @@
 
 
 enum {
-    ACTION, 
-    CONDITION
+    ACTION = 0, 
+    CONDITION = 1
 };
 template <int N>
 class ExecutionNode : public Node

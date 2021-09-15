@@ -1,8 +1,8 @@
 #pragma once
 #include "Node.h"
+#include <map>
 
 struct NodeHandler
 {
-    int node_type;
-    int node_ID;
+    std::map<int, Node*> node_map;
 };
