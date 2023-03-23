@@ -16,12 +16,14 @@
 #define BT_SEQUENCE_NODE_H_
 
 #include "utils/Status.h"
+#include "utils/AbstractNode.h"
+
 namespace BehaviourTree
 {
-    class SequenceNode
+    class SequenceNode : public AbstractNode
     {
     private:
-        eBtStatus status_= FAILURE;
+
     public:
         SequenceNode();
         ~SequenceNode();

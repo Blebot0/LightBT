@@ -4,6 +4,7 @@ using namespace BehaviourTree;
  
 SequenceNode::SequenceNode()
 {
+    node_type_ = eBtNodeType::SEQUENCE;
     
 }
 

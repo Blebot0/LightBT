@@ -1,4 +1,4 @@
-# MyBT: A Lightweight Implementation of Behaviour Tree for Common Tasks
+# LightBT: A Lightweight Implementation of Behaviour Tree for Common Tasks
 
 ## About Behaviour Trees
 Behaviour Tree is a directed rooted tree where the internal nodes are
