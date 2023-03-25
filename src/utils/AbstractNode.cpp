@@ -13,17 +13,17 @@
 
 using namespace BehaviourTree;
 
-eBtNodeType AbstractNode::getNodeType()
-{
-    return node_type_;
-}
+// eBtNodeType AbstractNode::getNodeType()
+// {
+//     return node_type_;
+// }
 
-eBtStatus AbstractNode::getNodeStatus()
-{
-    return node_status_;
-}
+// eBtStatus AbstractNode::getNodeStatus()
+// {
+//     return node_status_;
+// }
 
-size_t AbstractNode::getNodeID()
-{
-    return node_id_;
-}
+// size_t AbstractNode::getNodeID()
+// {
+//     return node_id_;
+// }

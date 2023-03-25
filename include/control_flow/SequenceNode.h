@@ -26,16 +26,20 @@ namespace BehaviourTree
     {
     private:
 
-        std::vector<AbstractNode*> children_nodes_;
+        std::vector<AbstractNode *> children_nodes_;
 
     public:
         SequenceNode();
         
-        bool add_child(AbstractNode* child);
-        
+        bool add_child(AbstractNode * child);
+        virtual eBtNodeType getNodeType() override;  
         eBtStatus execute_tick();
         ~SequenceNode();
     };
+
+    inline eBtNodeType SequenceNode::getNodeType(){
+        return eBtNodeType::SEQUENCE;
+    }
 } // namespace BehaviourTree
 
 #endif

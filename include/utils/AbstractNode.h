@@ -11,7 +11,7 @@
 #ifndef BT_ABSTRACT_NODE_H
 #define BT_ABSTRACT_NODE_H
 
-#include "utils/Status.h"
+#include <utils/Status.h>
 #include "utils/NodeType.h"
 #include <stdio.h>
 
@@ -24,7 +24,7 @@ namespace BehaviourTree
             eBtNodeType node_type_;
             eBtStatus node_status_;
         public:
-            eBtNodeType getNodeType();
+            virtual eBtNodeType getNodeType() = 0;
             eBtStatus getNodeStatus();
             size_t getNodeID();
     };

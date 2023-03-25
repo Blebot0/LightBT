@@ -15,8 +15,8 @@
 #ifndef BT_ACTION_NODE_H_
 #define BT_ACTION_NODE_H_
 
-#include <utils/Status.h>
-#include <utils/AbstractNode.h>
+#include <Status.h>
+#include <AbstractNode.h>
 #include <memory>
 #include <vector>
 
@@ -27,17 +27,19 @@ namespace BehaviourTree
     private:
     public:
         ActionNode();
+        // virtual bool addMethod() = 0;
+        eBtNodeType getNodeType() override;
         ~ActionNode();
     };
     
-    ActionNode::ActionNode()
-    {
+    inline eBtNodeType ActionNode::getNodeType(){
+        return eBtNodeType::ACTION;
     }
-    
-    ActionNode::~ActionNode()
-    {
+
+    inline ActionNode::ActionNode(){
+        node_type_ = eBtNodeType::ACTION;
+        node_status_ = eBtStatus::IDLE;
     }
-    
 } // namespace BehaviourTree
 
 #endif

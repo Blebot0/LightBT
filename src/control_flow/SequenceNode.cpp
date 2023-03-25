@@ -24,9 +24,10 @@ SequenceNode::SequenceNode()
     
 }
 
-bool BehaviourTree::SequenceNode::add_child(AbstractNode *child)
+bool SequenceNode::add_child(AbstractNode* child)
 {
     children_nodes_.push_back(child);
+    // children_nodes_.push_back(child);
 
     std::cout << children_nodes_[0]->getNodeType();
     return true;
