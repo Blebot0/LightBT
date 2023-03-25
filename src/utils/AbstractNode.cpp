@@ -23,7 +23,7 @@ eBtStatus AbstractNode::getNodeStatus()
     return node_status_;
 }
 
-int AbstractNode::getNodeID()
+size_t AbstractNode::getNodeID()
 {
     return node_id_;
 }

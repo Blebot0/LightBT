@@ -13,13 +13,23 @@
 */
 
 #include "control_flow/SequenceNode.h"
+#include <iostream>
 
 using namespace BehaviourTree;
  
 SequenceNode::SequenceNode()
 {
     node_type_ = eBtNodeType::SEQUENCE;
+    node_status_ = eBtStatus::IDLE;
     
+}
+
+bool BehaviourTree::SequenceNode::add_child(AbstractNode *child)
+{
+    children_nodes_.push_back(child);
+
+    std::cout << children_nodes_[0]->getNodeType();
+    return true;
 }
 
 SequenceNode::~SequenceNode()

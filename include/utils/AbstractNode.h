@@ -13,19 +13,20 @@
 
 #include "utils/Status.h"
 #include "utils/NodeType.h"
+#include <stdio.h>
 
 namespace BehaviourTree
 {
     class AbstractNode
     {
         protected:
-            int node_id_;
+            size_t node_id_;
             eBtNodeType node_type_;
             eBtStatus node_status_;
         public:
             eBtNodeType getNodeType();
             eBtStatus getNodeStatus();
-            int getNodeID();
+            size_t getNodeID();
     };
     
 } // namespace BehaviourTree
