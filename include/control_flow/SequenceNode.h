@@ -15,8 +15,10 @@
 #ifndef BT_SEQUENCE_NODE_H_
 #define BT_SEQUENCE_NODE_H_
 
-#include "utils/Status.h"
-#include "utils/AbstractNode.h"
+#include <utils/Status.h>
+#include <utils/AbstractNode.h>
+#include <memory>
+#include <vector>
 
 namespace BehaviourTree
 {
@@ -24,10 +26,16 @@ namespace BehaviourTree
     {
     private:
 
+        std::vector<AbstractNode*> children_nodes_;
+
     public:
         SequenceNode();
+        
+        bool add_child(AbstractNode* child);
+        
+        eBtStatus execute_tick();
         ~SequenceNode();
-    };  
+    };
 } // namespace BehaviourTree
 
 #endif

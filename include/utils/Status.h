@@ -17,7 +17,8 @@ namespace BehaviourTree
     typedef enum {
         SUCCESS = 1,
         RUNNING = 0,
-        FAILURE = -1
+        FAILURE = -1,
+        IDLE = 2
     } eBtStatus;
 
 } // namespace BehaviourTree
