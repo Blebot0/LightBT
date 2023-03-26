@@ -22,24 +22,28 @@
 
 namespace BehaviourTree
 {
+
+    
     class SequenceNode : public AbstractNode
     {
     private:
 
-        std::vector<AbstractNode *> children_nodes_;
+        std::vector<std::shared_ptr<AbstractNode>> children_nodes_;
 
     public:
         SequenceNode();
         
-        bool add_child(AbstractNode * child);
-        virtual eBtNodeType getNodeType() override;  
+        bool add_child(std::shared_ptr<AbstractNode> child);
+        virtual const eBtNodeType getNodeType() override;  
+        virtual const eBtStatus getNodeStatus() override;
+        virtual const size_t getNodeID() override;
+
         eBtStatus execute_tick();
         ~SequenceNode();
     };
 
-    inline eBtNodeType SequenceNode::getNodeType(){
-        return eBtNodeType::SEQUENCE;
-    }
+    typedef std::shared_ptr<SequenceNode> SequenceNodePtr;
+
 } // namespace BehaviourTree
 
 #endif

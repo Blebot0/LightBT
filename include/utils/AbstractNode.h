@@ -11,8 +11,8 @@
 #ifndef BT_ABSTRACT_NODE_H
 #define BT_ABSTRACT_NODE_H
 
-#include <utils/Status.h>
-#include "utils/NodeType.h"
+#include <Status.h>
+#include "NodeType.h"
 #include <stdio.h>
 
 namespace BehaviourTree
@@ -20,13 +20,20 @@ namespace BehaviourTree
     class AbstractNode
     {
         protected:
+            size_t node_counter_ = 0;
             size_t node_id_;
             eBtNodeType node_type_;
             eBtStatus node_status_;
+
+            inline size_t setCounter(){
+                return node_counter_++;
+            }
+
+            bool tick;
         public:
-            virtual eBtNodeType getNodeType() = 0;
-            eBtStatus getNodeStatus();
-            size_t getNodeID();
+            virtual const eBtNodeType getNodeType() = 0;
+            virtual const eBtStatus getNodeStatus() = 0;
+            virtual const size_t getNodeID() = 0;
     };
     
 } // namespace BehaviourTree

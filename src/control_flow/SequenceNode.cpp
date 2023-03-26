@@ -12,8 +12,8 @@
 * Running: If One Child return Running
 */
 
-#include "control_flow/SequenceNode.h"
 #include <iostream>
+#include "SequenceNode.h"
 
 using namespace BehaviourTree;
  
@@ -21,16 +21,29 @@ SequenceNode::SequenceNode()
 {
     node_type_ = eBtNodeType::SEQUENCE;
     node_status_ = eBtStatus::IDLE;
-    
+    node_id_ =  setCounter();
+    // node_counter_++; // Next Node will have next ID
 }
 
-bool SequenceNode::add_child(AbstractNode* child)
+bool SequenceNode::add_child(std::shared_ptr<AbstractNode> child)
 {
     children_nodes_.push_back(child);
-    // children_nodes_.push_back(child);
-
-    std::cout << children_nodes_[0]->getNodeType();
     return true;
+}
+
+const eBtNodeType SequenceNode::getNodeType()
+{
+    return eBtNodeType::SEQUENCE;
+}
+
+const eBtStatus BehaviourTree::SequenceNode::getNodeStatus()
+{
+    return eBtStatus();
+}
+
+const size_t BehaviourTree::SequenceNode::getNodeID()
+{
+    return node_id_;
 }
 
 SequenceNode::~SequenceNode()

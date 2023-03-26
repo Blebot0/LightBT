@@ -27,19 +27,13 @@ namespace BehaviourTree
     private:
     public:
         ActionNode();
-        // virtual bool addMethod() = 0;
-        eBtNodeType getNodeType() override;
+        virtual const eBtNodeType getNodeType() override;  
+        virtual const eBtStatus getNodeStatus() override;
+        virtual const size_t getNodeID() override;
         ~ActionNode();
     };
+    typedef std::shared_ptr<ActionNode> ActionNodePtr;
     
-    inline eBtNodeType ActionNode::getNodeType(){
-        return eBtNodeType::ACTION;
-    }
-
-    inline ActionNode::ActionNode(){
-        node_type_ = eBtNodeType::ACTION;
-        node_status_ = eBtStatus::IDLE;
-    }
 } // namespace BehaviourTree
 
 #endif
