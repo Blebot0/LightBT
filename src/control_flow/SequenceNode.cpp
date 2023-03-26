@@ -38,12 +38,35 @@ const eBtNodeType SequenceNode::getNodeType()
 
 const eBtStatus BehaviourTree::SequenceNode::getNodeStatus()
 {
-    return eBtStatus();
+    return node_status_;
 }
 
 const size_t BehaviourTree::SequenceNode::getNodeID()
 {
     return node_id_;
+}
+
+eBtStatus BehaviourTree::SequenceNode::executeTick()
+{
+    std::cout << "Sequence Node: " + std::to_string(node_status_) + "\n";
+
+    size_t len = children_nodes_.size();
+    node_status_ = eBtStatus::RUNNING;
+    
+    eBtStatus curr_status = eBtStatus::SUCCESS;
+
+    for(size_t i = 0; i < len; i++){
+        curr_status = static_cast<eBtStatus>(curr_status & children_nodes_[i]->executeTick());
+    }
+
+    node_status_ = curr_status;
+    return node_status_;
+}
+
+eBtStatus BehaviourTree::SequenceNode::execute_tick()
+{
+    node_status_ = eBtStatus::RUNNING;
+    return eBtStatus::FAILURE;
 }
 
 SequenceNode::~SequenceNode()

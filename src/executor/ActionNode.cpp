@@ -12,17 +12,24 @@ BehaviourTree::ActionNode::ActionNode()
 
 const eBtNodeType BehaviourTree::ActionNode::getNodeType()
 {
-    return eBtNodeType();
+    return node_type_;
 }
 
 const eBtStatus BehaviourTree::ActionNode::getNodeStatus()
 {
-    return eBtStatus();
+    return node_status_;
 }
 
 const size_t BehaviourTree::ActionNode::getNodeID()
 {
-    return size_t();
+    return node_id_;
+}
+
+eBtStatus BehaviourTree::ActionNode::executeTick()
+{
+    std::cout << "Action Node: " + std::to_string(node_status_) + std::to_string('\n');
+
+    return eBtStatus::SUCCESS;
 }
 
 BehaviourTree::ActionNode::~ActionNode()

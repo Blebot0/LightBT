@@ -16,7 +16,8 @@ namespace BehaviourTree
         PARALLEL = 2,
         DECORATOR = 3,
         ACTION = 4,
-        CONDITION = 5
+        CONDITION = 5,
+        ROOT = 6
     } eBtNodeType;
 
 } // namespace BehaviourTree

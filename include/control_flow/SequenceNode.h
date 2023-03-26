@@ -37,6 +37,7 @@ namespace BehaviourTree
         virtual const eBtNodeType getNodeType() override;  
         virtual const eBtStatus getNodeStatus() override;
         virtual const size_t getNodeID() override;
+        virtual eBtStatus executeTick() override;
 
         eBtStatus execute_tick();
         ~SequenceNode();

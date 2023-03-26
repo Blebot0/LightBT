@@ -21,5 +21,11 @@ add_library( action_lib
   include/executor/ActionNode.h
   src/executor/ActionNode.cpp
 )
+
+add_library( root_lib
+  include/utils/RootNode.h
+  src/utils/RootNode.cpp
+)
+
 add_executable(main src/main.cpp)
-target_link_libraries(main sequence_lib action_lib)
+target_link_libraries(main sequence_lib action_lib root_lib)

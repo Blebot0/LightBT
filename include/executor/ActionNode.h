@@ -30,6 +30,9 @@ namespace BehaviourTree
         virtual const eBtNodeType getNodeType() override;  
         virtual const eBtStatus getNodeStatus() override;
         virtual const size_t getNodeID() override;
+        virtual eBtStatus executeTick() override;
+
+        // if Exectute tick is called, send tick bool to true and run the method
         ~ActionNode();
     };
     typedef std::shared_ptr<ActionNode> ActionNodePtr;

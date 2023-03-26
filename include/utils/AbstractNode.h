@@ -12,8 +12,11 @@
 #define BT_ABSTRACT_NODE_H
 
 #include <Status.h>
-#include "NodeType.h"
+#include <NodeType.h>
+
 #include <stdio.h>
+#include <memory>
+#include <iostream>
 
 namespace BehaviourTree
 {
@@ -31,9 +34,11 @@ namespace BehaviourTree
 
             bool tick;
         public:
+            // add method for children count
             virtual const eBtNodeType getNodeType() = 0;
             virtual const eBtStatus getNodeStatus() = 0;
             virtual const size_t getNodeID() = 0;
+            virtual eBtStatus executeTick() = 0;
     };
     
 } // namespace BehaviourTree
