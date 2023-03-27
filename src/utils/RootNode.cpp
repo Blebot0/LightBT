@@ -41,7 +41,7 @@ eBtStatus BehaviourTree::RootNode::executeTick()
 {
     tick = true;
     node_status_ = eBtStatus::RUNNING;
-    std::cout << "Root Node: " + std::to_string(node_status_) + std::to_string('\n');
+    std::cout << "Root Node: " + std::to_string(node_status_) + "\n";
 
     node_status_ = child_node_->executeTick();
 

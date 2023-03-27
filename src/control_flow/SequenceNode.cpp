@@ -56,6 +56,7 @@ eBtStatus BehaviourTree::SequenceNode::executeTick()
     eBtStatus curr_status = eBtStatus::SUCCESS;
 
     for(size_t i = 0; i < len; i++){
+        // change this logic of checking
         curr_status = static_cast<eBtStatus>(curr_status & children_nodes_[i]->executeTick());
     }
 
@@ -63,11 +64,6 @@ eBtStatus BehaviourTree::SequenceNode::executeTick()
     return node_status_;
 }
 
-eBtStatus BehaviourTree::SequenceNode::execute_tick()
-{
-    node_status_ = eBtStatus::RUNNING;
-    return eBtStatus::FAILURE;
-}
 
 SequenceNode::~SequenceNode()
 {

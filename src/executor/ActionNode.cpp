@@ -1,3 +1,17 @@
+/*
+* Author: Keshav Kapur
+* Date: 26 March 2023
+*
+* Short Description: Implementation of the action node in a behaviour tree
+* 
+* Detailed Description: A action node is a executor node which handles the 
+* the final actions. 
+* 
+* Success: If Action is a success
+* Fails: If Action fails
+* Running: While Action is running
+*/
+
 #include "ActionNode.h"
 
 using namespace BehaviourTree;
@@ -9,6 +23,8 @@ BehaviourTree::ActionNode::ActionNode()
     node_id_ =  setCounter();
     // node_counter_++; // Next Node will have next ID
 }
+
+
 
 const eBtNodeType BehaviourTree::ActionNode::getNodeType()
 {
@@ -27,10 +43,13 @@ const size_t BehaviourTree::ActionNode::getNodeID()
 
 eBtStatus BehaviourTree::ActionNode::executeTick()
 {
-    std::cout << "Action Node: " + std::to_string(node_status_) + std::to_string('\n');
+    tick = true;
+    std::cout << "Action Node: " + std::to_string(node_status_) + "\n";
 
-    return eBtStatus::SUCCESS;
+    return success_ ? eBtStatus::SUCCESS : eBtStatus::FAILURE;
 }
+
+
 
 BehaviourTree::ActionNode::~ActionNode()
 {

@@ -15,8 +15,7 @@
 #ifndef BT_SEQUENCE_NODE_H_
 #define BT_SEQUENCE_NODE_H_
 
-#include <utils/Status.h>
-#include <utils/AbstractNode.h>
+#include <AbstractNode.h>
 #include <memory>
 #include <vector>
 
