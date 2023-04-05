@@ -27,5 +27,5 @@ add_library( root_lib
   src/utils/RootNode.cpp
 )
 
-add_executable(main src/main.cpp)
+add_executable(main test/main.cpp)
 target_link_libraries(main sequence_lib action_lib root_lib)
