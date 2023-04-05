@@ -75,6 +75,7 @@ namespace BehaviourTree
     template <typename Function, typename... Args>
     inline bool ActionNode::registerAction(Function f, Args... args)
     {
+        node_status_ = eBtStatus::RUNNING;
         std::function<bool(Args...)> funcObj(f);
         success_ = funcObj(args...);
         return true;
