@@ -42,7 +42,9 @@ const size_t BehaviourTree::ActionNode::getNodeID()
 eBtStatus BehaviourTree::ActionNode::executeTick()
 {
     tick = true;
+    node_status_ = success_ ? eBtStatus::SUCCESS : eBtStatus::FAILURE;
+
     std::cout << "Action Node: " + std::to_string(node_status_) + "\n";
 
-    return success_ ? eBtStatus::SUCCESS : eBtStatus::FAILURE;
+    return node_status_; 
 }
