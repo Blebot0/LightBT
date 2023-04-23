@@ -1,16 +1,16 @@
 /*
-* Author: Keshav Kapur
-* Date: 26 March 2023
-*
-* Short Description: Implementation of the action node in a behaviour tree
-* 
-* Detailed Description: A action node is a executor node which handles the 
-* the final actions. 
-* 
-* Success: If Action is a success
-* Fails: If Action fails
-* Running: While Action is running
-*/
+ * Author: Keshav Kapur
+ * Date: 26 March 2023
+ *
+ * Short Description: Implementation of the action node in a behaviour tree
+ *
+ * Detailed Description: A action node is a executor node which handles the
+ * the final actions.
+ *
+ * Success: If Action is a success
+ * Fails: If Action fails
+ * Running: While Action is running
+ */
 
 #include "ActionNode.h"
 
@@ -20,15 +20,13 @@ BehaviourTree::ActionNode::ActionNode()
 {
     node_type_ = eBtNodeType::ACTION;
     node_status_ = eBtStatus::IDLE;
-    node_id_ =  setCounter();
+    node_id_ = setCounter();
     // node_counter_++; // Next Node will have next ID
 }
 
-
-
 const eBtNodeType BehaviourTree::ActionNode::getNodeType()
 {
-    return node_type_;
+    return eBtNodeType::ACTION;
 }
 
 const eBtStatus BehaviourTree::ActionNode::getNodeStatus()
@@ -44,13 +42,9 @@ const size_t BehaviourTree::ActionNode::getNodeID()
 eBtStatus BehaviourTree::ActionNode::executeTick()
 {
     tick = true;
+    node_status_ = success_ ? eBtStatus::SUCCESS : eBtStatus::FAILURE;
+
     std::cout << "Action Node: " + std::to_string(node_status_) + "\n";
 
-    return success_ ? eBtStatus::SUCCESS : eBtStatus::FAILURE;
-}
-
-
-
-BehaviourTree::ActionNode::~ActionNode()
-{
+    return node_status_; 
 }
